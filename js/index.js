@@ -1,15 +1,24 @@
-import { dates } from "./data.js";
+import { dates } from "js/data.js"
+
 const timeline = document.querySelector(".timeline");
 function getCard(index) {
   const { date, title, image, fullDescription } = dates[index];
-  // Create tags for modal ok
-  const modalContainer = document.createElement("div"); // all mutliple variables "content" in one place for the modal = button
+  
+
+
+
+
+  const modalContainer = document.createElement("div"); 
   const modalDate = document.createElement("span");
   const modalTitle = document.createElement("h2");
   const modalFullDescription = document.createElement("p");
   const modalImage = document.createElement("img");
   const modalCloseButton = document.createElement("span");
-  // Set ID elements ok
+  
+
+
+
+
   modalContainer.setAttribute("id", "modal-container");
   modalDate.setAttribute("id","modal-date");
   modalTitle.setAttribute ("id", "modal-title");
@@ -18,11 +27,18 @@ function getCard(index) {
   modalImage.setAttribute("id", "modal-image");
   modalImage.setAttribute("src", image);
   modalImage.setAttribute("alt", title);
-  // Identify text from "DATA.JS" to each variable
+  
+
+
+
+
   const dateText = document.createTextNode(date);
   const titleText = document.createTextNode(title);
   const fullDescriptionText = document.createTextNode(fullDescription);
-  // Append each new variables to tags created previously
+  
+
+
+
   modalDate.appendChild(dateText);
   modalTitle.appendChild(titleText);
   modalFullDescription.appendChild(fullDescriptionText);
@@ -30,7 +46,10 @@ function getCard(index) {
   modalContainer.appendChild(modalTitle);
   modalContainer.appendChild(modalFullDescription);
   modalContainer.appendChild(modalImage);
-  // Closing button event
+  
+
+
+
   modalCloseButton.addEventListener(
     "click",
     (e) => {
@@ -70,14 +89,7 @@ dates.map(({ date, title, summary }, index) => {
   timelineItem.appendChild(timelineItemSummary);
   timelineItem.appendChild(timelineItemMoreInfoText);
   timelineItem.appendChild(circle);
-timelineItemMoreInfo.addEventListener(
-    "click",
-    (e) => {
-      e.preventDefault();
-      const index = e.target.getAttribute("data-index");
-      if (index) getCard(index);
-    },
-    false
-  );
-  timeline.appendChild(timelineItem);
-});
+
+
+  console.log(getCard());
+
