@@ -1,13 +1,9 @@
-import { dates } from ".data.js";
-// const timeline = document.querySelector(".timeline");
-function createCard(index) {
+//import from data.js
+import { dates } from "./data.js";
+/* ------> Correct data I thought  <------ */
+const timeline = document.querySelector(".timeline");
+function getCard(index) {
   const { date, title, image, fullDescription } = dates[index];
-
-
-
-
-
-
   // Create tags for modal ok
   const modalContainer = document.createElement("div"); // all mutliple variables "content" in one place for the modal = button
   const modalDate = document.createElement("span");
@@ -15,10 +11,6 @@ function createCard(index) {
   const modalFullDescription = document.createElement("p");
   const modalImage = document.createElement("img");
   const modalCloseButton = document.createElement("span");
-
-
-
-
   // Set ID elements ok
   modalContainer.setAttribute("id", "modal-container");
   modalDate.setAttribute("id","modal-date");
@@ -29,19 +21,10 @@ function createCard(index) {
   modalImage.setAttribute("src", image);
   modalImage.setAttribute("alt", title);
   // Identify text from "DATA.JS" to each variable
-
-
-
-
-
   const dateText = document.createTextNode(date);
   const titleText = document.createTextNode(title);
   const fullDescriptionText = document.createTextNode(fullDescription);
   // Append each new variables to tags created previously
-
-
-
-
   modalDate.appendChild(dateText);
   modalTitle.appendChild(titleText);
   modalFullDescription.appendChild(fullDescriptionText);
@@ -50,10 +33,6 @@ function createCard(index) {
   modalContainer.appendChild(modalFullDescription);
   modalContainer.appendChild(modalImage);
   // Closing button event
-
-
-
-
   modalCloseButton.addEventListener(
     "click",
     (e) => {
@@ -71,34 +50,22 @@ dates.map(({ date, title, summary }, index) => {
   const timelineItemDate = document.createElement("span");
   const timelineItemSummary = document.createElement("p");
   const timelineItemMoreInfo = document.createElement("button");
-
-
   const circle = document.createElement("div"); // date on the vertical bar timeline
   const titleText = document.createTextNode(title);
   const dateText = document.createTextNode(date);
   const summaryText = document.createTextNode(summary);
   const timelineItemMoreInfoText = document.createTextNode("More infos");
-
-
-
-
   timelineItem.setAttribute("class", "timeline-item");
   timelineItemTitle.setAttribute("class", "timeline-item-title");
   timelineItemDate.setAttribute("class", "timeline-item-date");
   timelineItemSummary.setAttribute("class", "timeline-item-summary");
-  // timelineItemMoreInfoText.setAttribute("class", "timeline-item-more-info");
   timelineItemMoreInfo.setAttribute("data-index", index);
   circle.setAttribute("class", "timeline-circle");
-
-
   timelineItemTitle.appendChild(titleText);
   timelineItemDate.appendChild(dateText);
   timelineItemSummary.appendChild(summaryText);
   timelineItemMoreInfo.appendChild(timelineItemMoreInfoText);
   circle.appendChild(dateText);
-
-
-
   timelineItem.appendChild(timelineItemTitle);
   timelineItem.appendChild(timelineItemDate);
   timelineItem.appendChild(timelineItemSummary);
@@ -109,7 +76,7 @@ timelineItemMoreInfo.addEventListener(
     (e) => {
       e.preventDefault();
       const index = e.target.getAttribute("data-index");
-      if (index) createCard(index);
+      if (index) getCard(index);
     },
     false
   );
