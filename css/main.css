@@ -1,11 +1,11 @@
 body {
     font-size: x-large;
-    background-color: rgb(249, 249, 233);
+    background-color: #fff;
 }
 h2 {
     font-size: 30px;
     font-style: oblique;
-    color: rgb(96, 56, 8);
+    color: rgb(8, 96, 26);
 }
 /*+Style for each container on the vertical rule*/
 .timeline {
